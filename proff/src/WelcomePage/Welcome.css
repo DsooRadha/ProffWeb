@@ -1,23 +1,91 @@
 :root {
-    --firts-green: #118437;
-    --soft-blue: #b7eefb;
-    --secondary-blue: #1a9af7;
-    --soft-blue: #e7f5ff;
-    --warm-black: #20342f;
-    --blackGreen: #1c231c;
-    --off-white: #faf8f7;
-    --just-white: #fff;
-    --grey: #bababa;
-  }
-  
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  html {
-    font-size: 62.5%;
-    font-family: "DM Sans", sans-serif;
-    background: linear-gradient(237.34deg, #606062 17.05%, #4A4A4A 86.94%);;
-  }
+  --grey: #606062;
+  --dark-grey: #4A4A4A;
+  --textSecondary-base: #FFCDAF;
+  --blue: #35BBF4;
+  --orange: #F47D35;
+  --textSecondary-white: #FFFFFF
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(237.34deg, --grey 17.05%, --dark-grey 86.94%);
+  background-color: var(--dark-grey);
+}
+
+.welcome {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  /* color: var(--textSecondary-base);
+  font-size: 2rem; */
+}
+
+.intro article h6 {
+  color: var(--textSecondary-base);
+  font-size: 3.7rem;
+  width: 25vw;
+  margin-top: 2vh;
+}
+
+.intro-content--img {
+  width: 45vw;
+  margin: 0 10vh;
+}
+
+.intro-content--img img {
+  width: 100%;
+}
+
+.menu {
+  display: flex;
+  width: 80vw;
+  align-items: center;
+  justify-content: space-between;
+  margin-top:10vh;
+}
+
+.menu-btn-study,
+.menu-btn-class {
+  padding: 3vh;
+  background-color: var(--blue);
+  border: none;
+  color: var(--textSecondary-white);
+  font-size: 1.5rem;
+  width: 12vw;
+  border-radius: 1vh;
+  margin: 0.5vw;
+  padding-left: 3vw;
+  background-image: url('../images/icons/study.svg');
+  background-repeat: no-repeat;
+  background-size: 1.5vw;
+  background-position: 3vw;
+  cursor: pointer;
+}
+
+.menu-btn-class {
+  background-color: var(--orange);
+  background-image: url('../images/icons/class.svg');
+  background-position: 2.2vw;
+}
+
+.menu p {
+  color: var(--textSecondary-base);
+  font-size: 1.2rem;
+}
