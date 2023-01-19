@@ -3,10 +3,6 @@ import './Welcome.css'
 
 export const Welcome = () => {
         const navigate = useNavigate();
-        // const logOut = () => {
-        //     navigate('/')
-    
-        // }
     
     return (
         <section className='welcome'>
