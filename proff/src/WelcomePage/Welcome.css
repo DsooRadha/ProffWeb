@@ -1,0 +1,23 @@
+:root {
+    --firts-green: #118437;
+    --soft-blue: #b7eefb;
+    --secondary-blue: #1a9af7;
+    --soft-blue: #e7f5ff;
+    --warm-black: #20342f;
+    --blackGreen: #1c231c;
+    --off-white: #faf8f7;
+    --just-white: #fff;
+    --grey: #bababa;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 62.5%;
+    font-family: "DM Sans", sans-serif;
+    background: linear-gradient(237.34deg, #606062 17.05%, #4A4A4A 86.94%);;
+  }
