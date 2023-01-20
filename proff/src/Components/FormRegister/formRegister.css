@@ -6,7 +6,9 @@
     --orange: #F47D35;
     --textSecondary-white: #FFFFFF;
     --slowPink: #F7F3F0;
-    --title: #666666
+    --title: #666666;
+    --backgroundInput: #FAFAFC;
+    --complements:#B6B6B6;
 }
 
 .register-Form {
@@ -28,33 +30,73 @@
     color: var(--title);
     border-bottom: #4A4A4A;
     font-family: 'Archivo', sans-serif;
-    padding: 3vh 0 ;
+    padding: 3vh 0;
 }
-.finalForm{
+
+.finalForm {
     display: flex;
     justify-content: space-between;
     padding: 5vh 0 0 0;
     width: 42vw;
     align-items: center;
-   
+
 }
 
-.form-btn{
+.form-btn {
     background-color: var(--orange);
-    color:var(--textSecondary-white);
+    color: var(--textSecondary-white);
     padding: 3vh;
-    border:none;
+    border: none;
     border-radius: 1vh;
     font-size: 1.8rem;
     width: 15vw;
 }
-.warningText{
+
+.warningText {
     color: #A0A0B2;
     background-image: url('../images/icons/warning.svg');
-    padding:3vh 0 3vh 8vh;
+    padding: 3vh 0 3vh 8vh;
     background-repeat: no-repeat;
     background-position: 0;
     background-size: 3vw;
-font-size: 1.4rem;
-line-height: 3vh;
+    font-size: 1.4rem;
+    line-height: 3vh;
+}
+
+.register-Form label {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-Form label input, .register-Form label textarea, .register-Form label select {
+    background-color: var(--backgroundInput);
+    border-radius: 1vh;
+    color: var(--orange);
+    padding: 2vh;
+    font-size: 1.7rem;
+    border-color: #F0EBE6;
+}
+
+.register-Form span {
+    font-family: 'Poppins', sans-serif;
+    color: var(--complements);
+    font-size: 1.5rem;
+    padding: 2vh 0;
+}
+#biography{
+    height: 20vh;
+}
+.schedule{
+    margin-top: 7vh;
+    display: flex;
+    justify-content: space-between;
+}
+.schedulea-btn{
+border: none;
+background: none;
+font-size: 1.5rem;
+cursor: pointer;
+}
+.placeholder{
+    color: var(--complements);
 }
