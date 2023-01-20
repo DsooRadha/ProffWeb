@@ -16,16 +16,16 @@
 html {
   font-size: 62.5%;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(237.34deg, --grey 17.05%, --dark-grey 86.94%);
-  background-color: var(--dark-grey);
+  /* background: linear-gradient(237.34deg, --grey 17.05%, --dark-grey 86.94%); */
 }
 
 .welcome {
-  height: 95vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: linear-gradient(237.34deg, #606062 17.05%, #4A4A4A 86.94%);
 }
 
 .intro {

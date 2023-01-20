@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './formRegister.css'
 
 export const FormRegister = () => {
+    const [inputList, setInputList] = useState([{}]);
     const [dataUser, setDataUser] = useState({});
 
     const handleSubmit = async (e) => {
@@ -14,9 +15,7 @@ export const FormRegister = () => {
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-            weekday: e.target.weekday.value,
-            startDay: e.target.startTime.value,
-            endDay: e.target.endTime.value
+            AvailableTimes:inputList,
         });
 
         const config = {
@@ -27,37 +26,51 @@ export const FormRegister = () => {
             },
             body: JSON.stringify(dataUser)
         };
+        console.log(dataUser)
         await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
-        // register-Form.reset();
     };
 
+    const handleScheduleAdd = () => setInputList([...inputList, {}]);
+
+    const handleScheduleAddRemove = (i) => {
+        const list = [...inputList];
+        list.splice(i, 1)
+        setInputList(list)
+    }
+
+    const handleScheduleChange = (e, index) => {
+        const { name, value } = e.target;
+        const list = [...inputList];
+        list[index][name] = value;
+        setInputList(list)
+    }
     //Extras: message error
     //mensaje de confirmacion de datos enviados
     //reset el form
-
+ 
     return (
         <>
             <form className='register-Form' onSubmit={handleSubmit} autoComplete='on'>
                 <h2>Tus datos</h2>
-                <label for="name">
+                <label className='register-Form--labelNormal' htmlFor="name">
                     <span>Nombre Completo</span>
                     <input type="text" id="name" required autoComplete='name' />
                 </label>
-                <label for="profilePicture">
+                <label className='register-Form--labelNormal' htmlFor="profilePicture">
                     <span>Link de tu foto    (comience con //http)</span>
                     <input type="url" id="profilePicture" required />
                 </label>
-                <label for="whatsapp">
+                <label className='register-Form--labelNormal' htmlFor="whatsapp">
                     <span>Whatsapp    (solamente números)</span>
                     <input type="number" id="whatsapp" required />
                 </label>
-                <label for="biography">
+                <label className='register-Form--labelNormal' htmlFor="biography">
                     <span>Biografía</span>
                     <textarea id="biography" required />
                 </label>
 
                 <h2>Sobre la clase</h2>
-                <label for="course">
+                <label className='register-Form--labelNormal' htmlFor="course">
                     <span>Materia</span>
                     <select id='course' required>
                         <option disabled selected className='placeholder'>Selecciona lo que deseas enseñar</option>
@@ -73,35 +86,44 @@ export const FormRegister = () => {
                     </select>
                 </label>
 
-                <label for="price">
+                <label className='register-Form--labelNormal' htmlFor="price">
                     <span>Costo de tu hora por lección (en $ MXN)</span>
                     <input type="number" id="price" required />
                 </label>
+                {inputList.map((element, i) => {
+                    return (
+                        <section key={i}>
+                            <article className='schedule'>
+                                <h2>Horarios Disponibles</h2>
+                                {(inputList.length - 1 === i && inputList.length < 5) && (<button className='schedulea-btn' onClick={() => handleScheduleAdd()}>+ Nuevo horario</button>)}
+                            </article>
+                            <div className='content--schedule'>
+                                <label className='register-Form--labelSchedule' htmlFor="weekday">
+                                    <span>Día de la Semana</span>
+                                    <select name="weekday" id="weekday" onChange={(e) => handleScheduleChange(e, i)} required>
+                                        <option value="" disabled selected className='placeholder'>Selecciona un día</option>
+                                        <option value="Lunes">Lunes</option>
+                                        <option value="Martes">Martes</option>
+                                        <option value="Miercoles">Miercoles</option>
+                                        <option value="Jueves">Jueves</option>
+                                        <option value="Viernes">Viernes</option>
+                                    </select>
+                                </label>
 
-                <article className='schedule'>
-                    <h2>Horarios Disponibles</h2>
-                    <button  className='schedulea-btn'>+ Nuevo horario</button>
-                </article>
-                <label for="weekday">
-                    <span>Día de la Semana</span>
-                    <select name="" id="weekday" required>
-                        <option value="" disabled selected className='placeholder'>Selecciona un día</option>
-                        <option value="Lunes">Lunes</option>
-                        <option value="Martes">Martes</option>
-                        <option value="Miercoles">Miercoles</option>
-                        <option value="Jueves">Jueves</option>
-                        <option value="Viernes">Viernes</option>
-                    </select>
-                </label>
+                                <label className='register-Form--labelSchedule-day' htmlFor="startTime">
+                                    <span>Desde</span>
+                                    <input name='startClass' type="time" value={element.startTime} onChange={(e) => handleScheduleChange(e, i)} id="startTime" required />
+                                </label>
+                                <label className='register-Form--labelSchedule-day' htmlFor="endTime">
+                                    <span>Hasta</span>
+                                    <input name='endClass' type="time" value={element.endTime} id="endTime" onChange={(e) => handleScheduleChange(e, i)} required />
+                                </label>
+                            </div>
+                            {inputList.length > 1 && (<button onClick={() => handleScheduleAddRemove(i)}>X BORRAR</button>)};
 
-                <label for="startTime">
-                    <span>Desde</span>
-                    <input type="time" id="startTime" required />
-                </label>
-                <label for="endTime">
-                    <span>Hasta</span>
-                    <input type="time" id="endTime" required />
-                </label>
+                        </section>
+                    )
+                })};
 
                 <article className='finalForm'>
                     <div className='warningText'>

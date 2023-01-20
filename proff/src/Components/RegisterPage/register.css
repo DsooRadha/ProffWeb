@@ -45,7 +45,6 @@
     font-weight: lighter;
 }
 
-.content-slowPink {
+html{
     background-color: var(--slowPink);
-    height: 120vh;
 }
