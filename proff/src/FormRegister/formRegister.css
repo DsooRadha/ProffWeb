@@ -28,33 +28,39 @@
     color: var(--title);
     border-bottom: #4A4A4A;
     font-family: 'Archivo', sans-serif;
-    padding: 3vh 0 ;
+    padding: 3vh 0;
 }
-.finalForm{
+
+.finalForm {
     display: flex;
     justify-content: space-between;
     padding: 5vh 0 0 0;
     width: 42vw;
     align-items: center;
-   
+
 }
 
-.form-btn{
+.form-btn {
     background-color: var(--orange);
-    color:var(--textSecondary-white);
+    color: var(--textSecondary-white);
     padding: 3vh;
-    border:none;
+    border: none;
     border-radius: 1vh;
     font-size: 1.8rem;
     width: 15vw;
 }
-.warningText{
+
+.warningText {
     color: #A0A0B2;
     background-image: url('../images/icons/warning.svg');
-    padding:3vh 0 3vh 8vh;
+    padding: 3vh 0 3vh 8vh;
     background-repeat: no-repeat;
     background-position: 0;
     background-size: 3vw;
-font-size: 1.4rem;
-line-height: 3vh;
+    font-size: 1.4rem;
+    line-height: 3vh;
+}
+.register-Form label{
+    display: flex;
+    flex-direction: column;
 }
