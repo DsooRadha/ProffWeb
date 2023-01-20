@@ -15,7 +15,7 @@ export const FormRegister = () => {
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-            AvailableTimes:inputList,
+            AvailableTimes: inputList,
         });
 
         const config = {
@@ -47,7 +47,7 @@ export const FormRegister = () => {
     //Extras: message error
     //mensaje de confirmacion de datos enviados
     //reset el form
- 
+
     return (
         <>
             <form className='register-Form' onSubmit={handleSubmit} autoComplete='on'>
@@ -93,10 +93,8 @@ export const FormRegister = () => {
                 {inputList.map((element, i) => {
                     return (
                         <section key={i}>
-                            <article className='schedule'>
                                 <h2>Horarios Disponibles</h2>
                                 {(inputList.length - 1 === i && inputList.length < 5) && (<button className='schedulea-btn' onClick={() => handleScheduleAdd()}>+ Nuevo horario</button>)}
-                            </article>
                             <div className='content--schedule'>
                                 <label className='register-Form--labelSchedule' htmlFor="weekday">
                                     <span>Día de la Semana</span>
@@ -119,8 +117,7 @@ export const FormRegister = () => {
                                     <input name='endClass' type="time" value={element.endTime} id="endTime" onChange={(e) => handleScheduleChange(e, i)} required />
                                 </label>
                             </div>
-                            {inputList.length > 1 && (<button onClick={() => handleScheduleAddRemove(i)}>X BORRAR</button>)};
-
+                            {inputList.length > 1 && (<div className='content--schedulea-btn-delete'><button onClick={() => handleScheduleAddRemove(i)} className='schedulea-btn-delete'>- Eliminar horario</button></div>)};
                         </section>
                     )
                 })};
