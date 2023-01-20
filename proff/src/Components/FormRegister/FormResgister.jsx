@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './formRegister.css'
 
 export const FormRegister = () => {
-    const [inputList, setInputList] = useState([{ availabletime: '' }]);
+    const [inputList, setInputList] = useState([{}]);
     const [dataUser, setDataUser] = useState({});
 
     const handleSubmit = async (e) => {
@@ -15,9 +15,7 @@ export const FormRegister = () => {
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-            weekday: e.target.weekday.value,
-            startDay: e.target.startTime.value,
-            endDay: e.target.endTime.value
+            AvailableTimes:inputList,
         });
 
         const config = {
@@ -28,20 +26,28 @@ export const FormRegister = () => {
             },
             body: JSON.stringify(dataUser)
         };
+        console.log(dataUser)
         await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
     };
 
-    const handleScheduleAdd = () => setInputList([...inputList, { availabletime: '' }]);
+    const handleScheduleAdd = () => setInputList([...inputList, {}]);
+
     const handleScheduleAddRemove = (i) => {
         const list = [...inputList];
         list.splice(i, 1)
         setInputList(list)
     }
 
+    const handleScheduleChange = (e, index) => {
+        const { name, value } = e.target;
+        const list = [...inputList];
+        list[index][name] = value;
+        setInputList(list)
+    }
     //Extras: message error
     //mensaje de confirmacion de datos enviados
     //reset el form
-
+ 
     return (
         <>
             <form className='register-Form' onSubmit={handleSubmit} autoComplete='on'>
@@ -92,29 +98,29 @@ export const FormRegister = () => {
                                 {(inputList.length - 1 === i && inputList.length < 5) && (<button className='schedulea-btn' onClick={() => handleScheduleAdd()}>+ Nuevo horario</button>)}
                             </article>
                             <div className='content--schedule'>
-                            <label className='register-Form--labelSchedule' htmlFor="weekday">
-                                <span>Día de la Semana</span>
-                                <select name="" id="weekday" required>
-                                    <option value="" disabled selected className='placeholder'>Selecciona un día</option>
-                                    <option value="Lunes">Lunes</option>
-                                    <option value="Martes">Martes</option>
-                                    <option value="Miercoles">Miercoles</option>
-                                    <option value="Jueves">Jueves</option>
-                                    <option value="Viernes">Viernes</option>
-                                </select>
-                            </label>
+                                <label className='register-Form--labelSchedule' htmlFor="weekday">
+                                    <span>Día de la Semana</span>
+                                    <select name="weekday" id="weekday" onChange={(e) => handleScheduleChange(e, i)} required>
+                                        <option value="" disabled selected className='placeholder'>Selecciona un día</option>
+                                        <option value="Lunes">Lunes</option>
+                                        <option value="Martes">Martes</option>
+                                        <option value="Miercoles">Miercoles</option>
+                                        <option value="Jueves">Jueves</option>
+                                        <option value="Viernes">Viernes</option>
+                                    </select>
+                                </label>
 
-                            <label className='register-Form--labelSchedule-day'  htmlFor="startTime">
-                                <span>Desde</span>
-                                <input type="time" id="startTime" required />
-                            </label>
-                            <label className='register-Form--labelSchedule-day'  htmlFor="endTime">
-                                <span>Hasta</span>
-                                <input type="time" id="endTime" required />
-                            </label>
+                                <label className='register-Form--labelSchedule-day' htmlFor="startTime">
+                                    <span>Desde</span>
+                                    <input name='startClass' type="time" value={element.startTime} onChange={(e) => handleScheduleChange(e, i)} id="startTime" required />
+                                </label>
+                                <label className='register-Form--labelSchedule-day' htmlFor="endTime">
+                                    <span>Hasta</span>
+                                    <input name='endClass' type="time" value={element.endTime} id="endTime" onChange={(e) => handleScheduleChange(e, i)} required />
+                                </label>
                             </div>
                             {inputList.length > 1 && (<button onClick={() => handleScheduleAddRemove(i)}>X BORRAR</button>)};
-                            
+
                         </section>
                     )
                 })};

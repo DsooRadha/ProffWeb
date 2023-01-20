@@ -82,6 +82,8 @@
 .register-Form label select:focus,
 .register-Form--labelSchedule-day input:focus {
     color: var(--orange);
+    border-bottom: 0.5vh solid #606062;
+    outline: none;
 }
 
 
