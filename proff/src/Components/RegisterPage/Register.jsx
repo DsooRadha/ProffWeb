@@ -14,10 +14,7 @@ export const Register = () => {
                     <p>El primer paso es rellenar este formulario de inscripción.</p>
                 </div>
             </section>
-            <section className='content-slowPink'>
             <FormRegister />
-            </section>
         </>
-
     )
 }

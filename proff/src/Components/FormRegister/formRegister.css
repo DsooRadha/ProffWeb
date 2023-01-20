@@ -1,6 +1,4 @@
 :root {
-    --grey: #606062;
-    --dark-grey: #4A4A4A;
     --textSecondary-base: #FFCDAF;
     --blue: #35BBF4;
     --orange: #F47D35;
@@ -8,7 +6,7 @@
     --slowPink: #F7F3F0;
     --title: #666666;
     --backgroundInput: #FAFAFC;
-    --complements:#B6B6B6;
+    --complements: #B6B6B6;
 }
 
 .register-Form {
@@ -39,7 +37,6 @@
     padding: 5vh 0 0 0;
     width: 42vw;
     align-items: center;
-
 }
 
 .form-btn {
@@ -68,14 +65,25 @@
     flex-direction: column;
 }
 
-.register-Form label input, .register-Form label textarea, .register-Form label select {
+.register-Form--labelNormal input,
+.register-Form label textarea,
+.register-Form label select,
+.register-Form--labelSchedule-day input {
     background-color: var(--backgroundInput);
     border-radius: 1vh;
-    color: var(--orange);
+    color: var(--complements);
     padding: 2vh;
     font-size: 1.7rem;
-    border-color: #F0EBE6;
+    border: solid #F0EBE6;
 }
+
+.register-Form--labelNormal input:focus,
+.register-Form label textarea:focus,
+.register-Form label select:focus,
+.register-Form--labelSchedule-day input:focus {
+    color: var(--orange);
+}
+
 
 .register-Form span {
     font-family: 'Poppins', sans-serif;
@@ -83,20 +91,39 @@
     font-size: 1.5rem;
     padding: 2vh 0;
 }
-#biography{
+
+#biography {
     height: 20vh;
 }
-.schedule{
+
+.schedule {
     margin-top: 7vh;
     display: flex;
     justify-content: space-between;
 }
-.schedulea-btn{
-border: none;
-background: none;
-font-size: 1.5rem;
-cursor: pointer;
+
+.schedulea-btn {
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
-.placeholder{
+
+.placeholder {
     color: var(--complements);
+}
+
+.content--schedule {
+    display: flex;
+}
+
+.register-Form--labelSchedule {
+    width: 80vw;
+
+}
+
+.register-Form--labelSchedule-day {
+    text-align: center;
+    width: 7vw;
+    margin: 0 0 0 2vh;
 }
