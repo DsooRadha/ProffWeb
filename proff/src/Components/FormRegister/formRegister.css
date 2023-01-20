@@ -6,7 +6,9 @@
     --orange: #F47D35;
     --textSecondary-white: #FFFFFF;
     --slowPink: #F7F3F0;
-    --title: #666666
+    --title: #666666;
+    --backgroundInput: #FAFAFC;
+    --complements:#B6B6B6;
 }
 
 .register-Form {
@@ -60,7 +62,41 @@
     font-size: 1.4rem;
     line-height: 3vh;
 }
-.register-Form label{
+
+.register-Form label {
     display: flex;
     flex-direction: column;
+}
+
+.register-Form label input, .register-Form label textarea, .register-Form label select {
+    background-color: var(--backgroundInput);
+    border-radius: 1vh;
+    color: var(--orange);
+    padding: 2vh;
+    font-size: 1.7rem;
+    border-color: #F0EBE6;
+}
+
+.register-Form span {
+    font-family: 'Poppins', sans-serif;
+    color: var(--complements);
+    font-size: 1.5rem;
+    padding: 2vh 0;
+}
+#biography{
+    height: 20vh;
+}
+.schedule{
+    margin-top: 7vh;
+    display: flex;
+    justify-content: space-between;
+}
+.schedulea-btn{
+border: none;
+background: none;
+font-size: 1.5rem;
+cursor: pointer;
+}
+.placeholder{
+    color: var(--complements);
 }

@@ -4,40 +4,44 @@ import './formRegister.css'
 export const FormRegister = () => {
     const [dataUser, setDataUser] = useState({});
 
-    const handleSubmit =async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-            setDataUser({
-                name: e.target.name.value,
-                profilePicture: e.target.profilePicture.value,
-                whatsapp: e.target.whatsapp.value,
-                biography: e.target.biography.value,
-                course: e.target.course.value,
-                price: e.target.price.value,
-                weekday:e.target.weekday.value,
-                startDay:e.target.startDay.value,
-                endDay:e.target.endDay.value
-            });
+        setDataUser({
+            name: e.target.name.value,
+            profilePicture: e.target.profilePicture.value,
+            whatsapp: e.target.whatsapp.value,
+            biography: e.target.biography.value,
+            course: e.target.course.value,
+            price: e.target.price.value,
+            weekday: e.target.weekday.value,
+            startDay: e.target.startTime.value,
+            endDay: e.target.endTime.value
+        });
 
-            const config = {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dataUser)
-            };
-            await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
-        
-    }
-   
+        const config = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataUser)
+        };
+        await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
+        // register-Form.reset();
+    };
+
+    //Extras: message error
+    //mensaje de confirmacion de datos enviados
+    //reset el form
+
     return (
         <>
             <form className='register-Form' onSubmit={handleSubmit} autoComplete='on'>
                 <h2>Tus datos</h2>
                 <label for="name">
                     <span>Nombre Completo</span>
-                    <input type="text" id="name" required autoComplete='name'/>
+                    <input type="text" id="name" required autoComplete='name' />
                 </label>
                 <label for="profilePicture">
                     <span>Link de tu foto    (comience con //http)</span>
@@ -49,14 +53,14 @@ export const FormRegister = () => {
                 </label>
                 <label for="biography">
                     <span>Biografía</span>
-                    <input type="textarea" id="biography" required />
+                    <textarea id="biography" required />
                 </label>
 
                 <h2>Sobre la clase</h2>
                 <label for="course">
                     <span>Materia</span>
                     <select id='course' required>
-                        <option></option>
+                        <option disabled selected className='placeholder'>Selecciona lo que deseas enseñar</option>
                         <option>Artes</option>
                         <option>Biología</option>
                         <option>Ciencias</option>
@@ -74,14 +78,14 @@ export const FormRegister = () => {
                     <input type="number" id="price" required />
                 </label>
 
-                <article>
+                <article className='schedule'>
                     <h2>Horarios Disponibles</h2>
-                    <button>+ Nuevo horario</button>
+                    <button  className='schedulea-btn'>+ Nuevo horario</button>
                 </article>
                 <label for="weekday">
                     <span>Día de la Semana</span>
                     <select name="" id="weekday" required>
-                        <option value=""></option>
+                        <option value="" disabled selected className='placeholder'>Selecciona un día</option>
                         <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
                         <option value="Miercoles">Miercoles</option>
@@ -90,15 +94,15 @@ export const FormRegister = () => {
                     </select>
                 </label>
 
-                <label for="startDay">
+                <label for="startTime">
                     <span>Desde</span>
-                    <input type="date" id="startDay" required />
+                    <input type="time" id="startTime" required />
                 </label>
-                <label for="endDay">
+                <label for="endTime">
                     <span>Hasta</span>
-                    <input type="date" id="endDay" required />
+                    <input type="time" id="endTime" required />
                 </label>
-               
+
                 <article className='finalForm'>
                     <div className='warningText'>
                         <p>¡Importante! </p>

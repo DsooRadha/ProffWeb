@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Welcome } from './WelcomePage/Welcome';
-import { Register} from './RegisterPage/Register'
-import {Study} from './StudyPages/Study'
-import { NotFound } from './NotFound/NotFound';
+import { Welcome } from './Components/WelcomePage/Welcome';
+import { Register} from './Components/RegisterPage/Register'
+import {Study} from './Components/StudyPages/Study'
+import { NotFound } from './Components/NotFound/NotFound';
 
 function App() {
 
