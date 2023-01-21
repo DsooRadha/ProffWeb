@@ -28,6 +28,8 @@
 }
 .info-professor--profile img {
     border-radius: 50% 50%;
+    width: 100%;
+    height: 100%;
 }
 .content-info-professor{
     padding: 3vw;
@@ -83,4 +85,8 @@ font-size: 1.5rem;
    background-position: 2vw;
     padding-left: 3vw;
     background-size: 3vh;
+}
+.info-professor--profile-content-img{
+    width: 7vw;
+    height: 14vh;
 }
