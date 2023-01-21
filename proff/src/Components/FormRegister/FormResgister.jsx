@@ -15,7 +15,7 @@ export const FormRegister = () => {
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-            AvailableTimes:inputList,
+            AvailableTimes: inputList,
         });
 
         const config = {
@@ -47,7 +47,9 @@ export const FormRegister = () => {
     //Extras: message error
     //mensaje de confirmacion de datos enviados
     //reset el form
- 
+    //modal de confirmacion de registro exitoso
+    //bug en el onclick de boton
+
     return (
         <>
             <form className='register-Form' onSubmit={handleSubmit} autoComplete='on'>
@@ -68,7 +70,6 @@ export const FormRegister = () => {
                     <span>Biografía</span>
                     <textarea id="biography" required />
                 </label>
-
                 <h2>Sobre la clase</h2>
                 <label className='register-Form--labelNormal' htmlFor="course">
                     <span>Materia</span>
@@ -85,7 +86,6 @@ export const FormRegister = () => {
                         <option>Química</option>
                     </select>
                 </label>
-
                 <label className='register-Form--labelNormal' htmlFor="price">
                     <span>Costo de tu hora por lección (en $ MXN)</span>
                     <input type="number" id="price" required />
@@ -93,10 +93,8 @@ export const FormRegister = () => {
                 {inputList.map((element, i) => {
                     return (
                         <section key={i}>
-                            <article className='schedule'>
                                 <h2>Horarios Disponibles</h2>
                                 {(inputList.length - 1 === i && inputList.length < 5) && (<button className='schedulea-btn' onClick={() => handleScheduleAdd()}>+ Nuevo horario</button>)}
-                            </article>
                             <div className='content--schedule'>
                                 <label className='register-Form--labelSchedule' htmlFor="weekday">
                                     <span>Día de la Semana</span>
@@ -109,7 +107,6 @@ export const FormRegister = () => {
                                         <option value="Viernes">Viernes</option>
                                     </select>
                                 </label>
-
                                 <label className='register-Form--labelSchedule-day' htmlFor="startTime">
                                     <span>Desde</span>
                                     <input name='startClass' type="time" value={element.startTime} onChange={(e) => handleScheduleChange(e, i)} id="startTime" required />
@@ -119,12 +116,9 @@ export const FormRegister = () => {
                                     <input name='endClass' type="time" value={element.endTime} id="endTime" onChange={(e) => handleScheduleChange(e, i)} required />
                                 </label>
                             </div>
-                            {inputList.length > 1 && (<button onClick={() => handleScheduleAddRemove(i)}>X BORRAR</button>)};
-
+                            {inputList.length > 1 && (<div className='content--schedulea-btn-delete'><button onClick={() => handleScheduleAddRemove(i)} className='schedulea-btn-delete'>- Eliminar horario</button></div>)};
                         </section>
-                    )
-                })};
-
+                    ) })};
                 <article className='finalForm'>
                     <div className='warningText'>
                         <p>¡Importante! </p>

@@ -1,0 +1,42 @@
+:root {
+    --textSecondary-base: #FFCDAF;
+    --orange: #F47D35;
+    --textSecondary-white: #FFFFFF;
+    --slowPink: #F7F3F0;
+    --title: #666666;
+    --backgroundInput: #FAFAFC;
+    --complements: #B6B6B6;
+    --grey: #606062;
+}
+.study-main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.welcomeStudents{
+    background-color: var(--grey);
+    height: 30vh;
+    padding-left: 50vh;
+    color: var(--textSecondary-white);
+    font-size: 2.4rem;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+    width: 100vw;
+
+}
+.welcomeStudents h2{
+    width: 30vw;
+}
+.menu-filtering{
+    display: flex;
+    align-items: center;
+    width: 82vw;
+    justify-content: space-evenly;
+    font-family: 'Poppins', sans-serif;
+   
+}
+.menu-filtering p{
+    font-size: 1.7rem;
+    color: var(--textSecondary-base);
+}
+

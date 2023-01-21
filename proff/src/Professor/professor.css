@@ -1,0 +1,84 @@
+:root {
+    --textSecondary-base: #FFCDAF;
+    --orange: #F47D35;
+    --textSecondary-white: #FFFFFF;
+    --slowPink: #F7F3F0;
+    --title: #666666;
+    --backgroundInput: #FAFAFC;
+    --complements: #B6B6B6;
+    --grey: #606062;
+    --white: #FFFFFF;
+}
+
+.info-professor {
+    background-color: var(--white);
+    border-radius: 1.3vh;
+    border: 0.2vh solid #e3e2e2;
+    margin: 1vh;
+    width: 50vw;
+    font-family: 'Poppins', sans-serif;
+    /* color: var(--complements); */
+}
+.info-professor--profile{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.info-professor--profile img {
+    border-radius: 50% 50%;
+}
+.content-info-professor{
+    padding: 3vw;
+}
+.info-professor-data{
+    display:flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+.info-professor-data h2{
+    color: var(--grey);
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.info-professor-data h4{
+color: var(--orange);
+font-size: 1.5rem;
+font-weight: lighter;
+}
+.content-info-professor p{
+    margin-top: 3vh;
+    color: var(--complements);
+    font-size: 1.7rem;
+}
+.info-contactAndPrice{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5vh;
+    background-color: #f6f6fc;;
+}
+.info-contactAndPrice p{
+color: var(--complements);
+font-size: 1.5rem;
+}
+.info-contactAndPrice span{
+    color: var(--title);
+    font-size: 1.9rem;
+    padding-left: 1vh;
+}
+
+.info-contactAndPrice button{
+    background-color: #F47D35;
+    color: var(--white);
+    padding: 2.3vh;
+    font-size: 1.7rem;
+    border: none;
+    border-radius: 1vh;
+    width: 17vw;
+    background-image: url('../Components/images/icons/Whatsapp.svg');
+    background-repeat: no-repeat;
+   background-size: cover;
+   background-position: 2vw;
+    padding-left: 3vw;
+    background-size: 3vh;
+}

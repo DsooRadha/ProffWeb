@@ -18,7 +18,7 @@ export const Welcome = () => {
 
             <nav className='menu'>
                 <div>
-                <button className='menu-btn-study' onClick={navigate('/study')}>Estudiar</button>
+                <button className='menu-btn-study' onClick={()=>navigate('/study')}>Estudiar</button>
                 <button className='menu-btn-class' onClick={()=>navigate('/register')}>Dar Clases</button>
                 </div>
                 <p>285 conexiones realizadas 💙</p>
