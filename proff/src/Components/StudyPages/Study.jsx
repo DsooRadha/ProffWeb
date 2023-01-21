@@ -1,8 +1,44 @@
+import { useState, useEffect } from 'react'
 import { Professor } from '../../Professor/Professor'
 import { Header } from '../Header/Header'
+import { NoMatch } from '../NoMatch/NoMatch'
 import './study.css'
 
 export const Study = () => {
+    const [courses, setCourses] = useState([]);
+
+    const getAllCourses = async () => {
+        const config = {
+            method: "GET",
+            headers: { "Content-type": "application/json;charset=UTF-8" }
+        };
+        const response = await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config)
+        const allCourses = await response.json();
+        setCourses(allCourses)
+    };
+
+    useEffect(() => {
+        getAllCourses()
+    }, []);
+
+    const handleCourseChange = (e) => {
+        if (e.target.value === '') {
+            return getAllCourses()
+        }
+        const filtering = courses.filter(p => p.course === e.target.value)
+        setCourses(filtering)
+    };
+
+    const handleWeekDayChange = (e) => {
+        if (e.target.value === '') {
+            return getAllCourses()
+        }
+
+        const filtering = courses.filter(p => p.AvailableTimes.weekday === e.target.value)
+        setCourses(filtering)
+    };
+
+    console.log(courses.filter(p => p.AvailableTimes.weekday === 'Lunes'))
     return (
         <main className='study-main'>
             <Header />
@@ -10,25 +46,25 @@ export const Study = () => {
                 <h2>Estos son los <br /> proffs disponibles.</h2>
             </section>
             <section className='menu-filtering'>
-                <label className='' htmlFor="course">
+                <label htmlFor="course">
                     <span>Materia</span>
-                    <select id='course' required>
-                        <option disabled selected className='placeholder'>Selecciona lo que deseas enseñar</option>
-                        <option>Artes</option>
-                        <option>Biología</option>
-                        <option>Ciencias</option>
-                        <option>Educación Fisica</option>
-                        <option>Física</option>
-                        <option>Geografía</option>
-                        <option>Matemática</option>
-                        <option>Portugués</option>
-                        <option>Química</option>
+                    <select onChange={(e) => handleCourseChange(e)} className='menu-filtering--select' id='course' required >
+                        <option value=''></option>
+                        <option value='Artes'>Artes</option>
+                        <option value='Biología'>Biología</option>
+                        <option value='Ciencias'>Ciencias</option>
+                        <option value='Educación Fisica' >Educación Fisica</option>
+                        <option value='Física'>Física</option>
+                        <option value='Geografía'>Geografía</option>
+                        <option value='Matemática'>Matemática</option>
+                        <option value='Portugués'>Portugués</option>
+                        <option value='Química'>Química</option>
                     </select>
                 </label>
                 <label>
-                    <p>Día de la Semana</p>
-                    <select name="weekday" id="weekday" required>
-                        <option value="" disabled selected className='placeholder'>Selecciona un día</option>
+                    <span>Día de la Semana</span>
+                    <select onChange={(e) => handleWeekDayChange(e)} className='menu-filtering--select' name="weekday" id="weekday" required>
+                        <option value=""></option>
                         <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
                         <option value="Miercoles">Miercoles</option>
@@ -36,12 +72,13 @@ export const Study = () => {
                         <option value="Viernes">Viernes</option>
                     </select>
                 </label>
-                <div>
-                    <p>Horario</p>
-                    <select name="" id=""></select>
-                </div>
+                <label>
+                    <span>Horario</span>
+                    <input className='menu-filtering--select' type="time" />
+                </label>
             </section>
-            <Professor />
+            <Professor courses={courses} />
+            {courses.length === 0 && <NoMatch />}
         </main>
     )
 }
