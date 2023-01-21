@@ -47,6 +47,8 @@ export const FormRegister = () => {
     //Extras: message error
     //mensaje de confirmacion de datos enviados
     //reset el form
+    //modal de confirmacion de registro exitoso
+    //bug en el onclick de boton
 
     return (
         <>
@@ -68,7 +70,6 @@ export const FormRegister = () => {
                     <span>Biografía</span>
                     <textarea id="biography" required />
                 </label>
-
                 <h2>Sobre la clase</h2>
                 <label className='register-Form--labelNormal' htmlFor="course">
                     <span>Materia</span>
@@ -85,7 +86,6 @@ export const FormRegister = () => {
                         <option>Química</option>
                     </select>
                 </label>
-
                 <label className='register-Form--labelNormal' htmlFor="price">
                     <span>Costo de tu hora por lección (en $ MXN)</span>
                     <input type="number" id="price" required />
@@ -107,7 +107,6 @@ export const FormRegister = () => {
                                         <option value="Viernes">Viernes</option>
                                     </select>
                                 </label>
-
                                 <label className='register-Form--labelSchedule-day' htmlFor="startTime">
                                     <span>Desde</span>
                                     <input name='startClass' type="time" value={element.startTime} onChange={(e) => handleScheduleChange(e, i)} id="startTime" required />
@@ -119,9 +118,7 @@ export const FormRegister = () => {
                             </div>
                             {inputList.length > 1 && (<div className='content--schedulea-btn-delete'><button onClick={() => handleScheduleAddRemove(i)} className='schedulea-btn-delete'>- Eliminar horario</button></div>)};
                         </section>
-                    )
-                })};
-
+                    ) })};
                 <article className='finalForm'>
                     <div className='warningText'>
                         <p>¡Importante! </p>

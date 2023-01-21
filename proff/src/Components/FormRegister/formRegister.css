@@ -1,6 +1,5 @@
 :root {
     --textSecondary-base: #FFCDAF;
-    --blue: #35BBF4;
     --orange: #F47D35;
     --textSecondary-white: #FFFFFF;
     --slowPink: #F7F3F0;
@@ -34,7 +33,7 @@
 .finalForm {
     display: flex;
     justify-content: space-between;
-    padding: 5vh 0 0 0;
+    padding: 3vh 0 0 0;
     width: 42vw;
     align-items: center;
 }
@@ -99,7 +98,6 @@
 }
 
 .schedule {
-    
     display: flex;
     justify-content: space-between;
 }
