@@ -10,10 +10,10 @@ export const Study = () => {
                 <h2>Estos son los <br /> proffs disponibles.</h2>
             </section>
             <section className='menu-filtering'>
-                <label className='' htmlFor="course">
+                <label htmlFor="course">
                     <span>Materia</span>
-                    <select id='course' required>
-                        <option disabled selected className='placeholder'>Selecciona lo que deseas enseñar</option>
+                    <select className='menu-filtering--select' id='course' required>
+                        <option></option>
                         <option>Artes</option>
                         <option>Biología</option>
                         <option>Ciencias</option>
@@ -26,9 +26,9 @@ export const Study = () => {
                     </select>
                 </label>
                 <label>
-                    <p>Día de la Semana</p>
-                    <select name="weekday" id="weekday" required>
-                        <option value="" disabled selected className='placeholder'>Selecciona un día</option>
+                    <span>Día de la Semana</span>
+                    <select className='menu-filtering--select' name="weekday" id="weekday" required>
+                        <option value=""></option>
                         <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
                         <option value="Miercoles">Miercoles</option>
@@ -36,10 +36,10 @@ export const Study = () => {
                         <option value="Viernes">Viernes</option>
                     </select>
                 </label>
-                <div>
-                    <p>Horario</p>
-                    <select name="" id=""></select>
-                </div>
+                <label>
+                    <span>Horario</span>
+                    <input  className='menu-filtering--select' type="time" />
+                </label>
             </section>
             <Professor />
         </main>

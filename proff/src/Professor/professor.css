@@ -9,12 +9,14 @@
     --grey: #606062;
     --white: #FFFFFF;
 }
-
+.content-info-professors{
+    margin-top: 6vh;
+}
 .info-professor {
     background-color: var(--white);
     border-radius: 1.3vh;
     border: 0.2vh solid #e3e2e2;
-    margin: 1vh;
+    margin: 4vh;
     width: 50vw;
     font-family: 'Poppins', sans-serif;
     /* color: var(--complements); */

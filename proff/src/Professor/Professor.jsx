@@ -20,7 +20,7 @@ export const Professor = () => {
     }, []);
 
     return (
-        <>
+        <section className="content-info-professors">
             {courses.length > 0 && courses.map((item, index) => {
                 return (
                     <article className="info-professor" key={index}>
@@ -41,6 +41,6 @@ export const Professor = () => {
                     </article>
                 )
             })}
-        </>
+        </section>
     )
 };

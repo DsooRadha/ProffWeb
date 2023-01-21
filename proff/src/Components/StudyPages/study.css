@@ -8,12 +8,14 @@
     --complements: #B6B6B6;
     --grey: #606062;
 }
-.study-main{
+
+.study-main {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.welcomeStudents{
+
+.welcomeStudents {
     background-color: var(--grey);
     height: 30vh;
     padding-left: 50vh;
@@ -24,19 +26,40 @@
     width: 100vw;
 
 }
-.welcomeStudents h2{
+
+.welcomeStudents h2 {
     width: 30vw;
 }
-.menu-filtering{
+
+.menu-filtering {
+    position: absolute;
+    top:29vh;
     display: flex;
     align-items: center;
-    width: 82vw;
+    width: 55vw;
     justify-content: space-evenly;
     font-family: 'Poppins', sans-serif;
-   
-}
-.menu-filtering p{
-    font-size: 1.7rem;
-    color: var(--textSecondary-base);
+
 }
 
+.menu-filtering span {
+    font-size: 1.7rem;
+    color: var(--textSecondary-base);
+    padding: 1.2vh 0;
+}
+
+.menu-filtering label {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-filtering--select {
+    padding: 1.6vh;
+    border: none;
+    border-radius: 1vh;
+    color: var(--complements);
+    font-family: 'Poppins', sans-serif;
+    width: 15vw;
+    font-size: 2.1rem;
+    background-color: #FAFAFC;
+}
