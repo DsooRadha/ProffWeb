@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Welcome } from './Components/WelcomePage/Welcome';
 import { Register } from './Components/RegisterPage/Register';
 import { Study } from './Components/StudyPages/Study';
-import { NotFound } from './Components/NotFound/NoFound';
+import { NotFound } from './Components/NotFoundPages/NoFound';
 
 function App() {
 

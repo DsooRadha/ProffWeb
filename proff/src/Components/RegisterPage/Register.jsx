@@ -1,10 +1,9 @@
-import { FormRegister } from '../FormRegister/FormResgister'
+import { FormRegister } from './FormRegister/FormResgister'
 import { Header } from '../Header/Header'
 import './register.css'
 
 export const Register = () => {
 
-    //Header pasarlo a un componente aparte
     return (
         <>
             <section className='content-gray'>
