@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Professor } from '../../Professor/Professor'
+import { Professor } from './Professor/Professor'
 import { Header } from '../Header/Header'
-import { NoMatch } from '../NoMatch/NoMatch'
+import { NoMatch } from './NoMatch/NoMatch'
 import './study.css'
 
 export const Study = () => {
