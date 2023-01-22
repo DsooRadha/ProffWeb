@@ -5,9 +5,8 @@ export const FormRegister = () => {
     const [inputList, setInputList] = useState([{}]);
     const [dataUser, setDataUser] = useState({});
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-
         setDataUser({
             name: e.target.name.value,
             profilePicture: e.target.profilePicture.value,
@@ -15,19 +14,22 @@ export const FormRegister = () => {
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-            availableTimes: inputList,
+            // availableTimes: inputList,
         });
+        sendUser(dataUser);
+        e.target.reset();
+    };
 
+    const sendUser = async (user) => {
         const config = {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(dataUser)
+            body: JSON.stringify({...user, availableTimes: inputList})
         };
         await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
-        e.target.reset();
     };
 
     const handleScheduleAdd = () => setInputList([...inputList, {}]);
@@ -55,7 +57,7 @@ export const FormRegister = () => {
 
     return (
         <>
-            <form className='register-Form' onSubmit={(e)=>handleSubmit(e)} autoComplete='on'>
+            <form className='register-Form' onSubmit={(e) => handleSubmit(e)} autoComplete='on'>
                 <h2>Tus datos</h2>
                 <label className='register-Form--labelNormal' htmlFor="name">
                     <span>Nombre Completo</span>
@@ -91,13 +93,13 @@ export const FormRegister = () => {
                 </label>
                 <label className='register-Form--labelNormal' htmlFor="price">
                     <span>Costo de tu hora por lección (en $ MXN)</span>
-                    <input type="number" id="price" required min="0"/>
+                    <input type="number" id="price" required min="0" />
                 </label>
                 <h2>Horarios Disponibles</h2>
                 {inputList.map((element, i) => {
                     return (
                         <section key={i}>
-                            
+
                             {(inputList.length - 1 === i && inputList.length < 5) && (<button className='schedulea-btn' onClick={() => handleScheduleAdd()}>+ Nuevo horario</button>)}
                             <div className='content--schedule'>
                                 <label className='register-Form--labelSchedule' htmlFor="weekday">

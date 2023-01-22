@@ -89,7 +89,9 @@
     border-bottom: 0.5vh solid #606062;
     outline: none;
 }
-
+.register-Form label textarea{
+    height: 20vh;
+}
 
 .register-Form span {
     font-family: 'Poppins', sans-serif;
@@ -139,7 +141,6 @@
 
 .schedulea-btn-delete {
     color: var(--orange);
-
 }
 
 .content--schedulea-btn-delete {
@@ -151,5 +152,5 @@
 .schedulea-btn {
     position: absolute;
     right: 12vh;
-    top: 119vh;
+    top: 129vh;
 }
