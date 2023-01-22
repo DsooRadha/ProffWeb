@@ -6,6 +6,7 @@ import './study.css'
 
 export const Study = () => {
     const [courses, setCourses] = useState([]);
+    const [allCourses, setAllCourses] = useState([]);
 
     const getAllCourses = async () => {
         const config = {
@@ -15,6 +16,7 @@ export const Study = () => {
         const response = await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config)
         const allCourses = await response.json();
         setCourses(allCourses)
+        setAllCourses(allCourses)
     };
 
     useEffect(() => {
@@ -25,20 +27,33 @@ export const Study = () => {
         if (e.target.value === '') {
             return getAllCourses()
         }
-        const filtering = courses.filter(p => p.course === e.target.value)
+        const filtering = courses.filter(item => item.course === e.target.value)
         setCourses(filtering)
     };
 
     const handleWeekDayChange = (e) => {
+
         if (e.target.value === '') {
             return getAllCourses()
         }
+        const daysCourses=[];
 
-        const filtering = courses.filter(p => p.AvailableTimes.weekday === e.target.value)
-        setCourses(filtering)
+      courses.forEach((element) => {
+            const daysClass = element.availableTimes
+            // console.log(daysClass,'dayClass')
+            daysClass.forEach((day) => {
+                if (day.weekday === e.target.value) {
+                    // console.log(day,'day')
+                    if (day === daysClass[0]) {
+                        console.log(element)
+                        daysCourses.push(element)
+                    }
+                }
+            });
+        });
+setCourses(daysCourses)
     };
 
-    console.log(courses.filter(p => p.AvailableTimes.weekday === 'Lunes'))
     return (
         <main className='study-main'>
             <Header />
@@ -64,7 +79,7 @@ export const Study = () => {
                 <label>
                     <span>Día de la Semana</span>
                     <select onChange={(e) => handleWeekDayChange(e)} className='menu-filtering--select' name="weekday" id="weekday" required>
-                        <option value=""></option>
+                        <option value=''></option>
                         <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
                         <option value="Miercoles">Miercoles</option>
@@ -80,5 +95,5 @@ export const Study = () => {
             <Professor courses={courses} />
             {courses.length === 0 && <NoMatch />}
         </main>
-    )
+    );
 }

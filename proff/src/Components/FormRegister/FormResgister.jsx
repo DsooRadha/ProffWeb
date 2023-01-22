@@ -15,7 +15,7 @@ export const FormRegister = () => {
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-            AvailableTimes: inputList,
+            availableTimes: inputList,
         });
 
         const config = {

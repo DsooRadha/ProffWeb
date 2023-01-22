@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import './professor.css'
 
 export const Professor = ({ courses}) => {
