@@ -4,7 +4,9 @@
   --textSecondary-base: #FFCDAF;
   --blue: #35BBF4;
   --orange: #F47D35;
-  --textSecondary-white: #FFFFFF
+  --textSecondary-white: #FFFFFF;
+  --darkBlue: #3aa0df;
+  --darkOrange:#DA5707;
 }
 
 * {
@@ -33,8 +35,6 @@ html {
   justify-content: center;
   align-items: center;
   height: 50vh;
-  /* color: var(--textSecondary-base);
-  font-size: 2rem; */
 }
 
 .intro article h6 {
@@ -79,10 +79,16 @@ html {
   cursor: pointer;
 }
 
+.menu-btn-study:hover{
+  background-color: var(--darkBlue);
+}
 .menu-btn-class {
   background-color: var(--orange);
   background-image: url('../images/icons/class.svg');
   background-position: 2.2vw;
+}
+.menu-btn-class:hover{
+  background-color: var(--darkOrange);
 }
 
 .menu p {
