@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { ConfirmSendInfo } from '../../ConfirmSendInfo/ConfirmSendInfo';
 import './formRegister.css'
 
 export const FormRegister = () => {
     const [inputList, setInputList] = useState([{}]);
     const [dataUser, setDataUser] = useState({});
+    const [showConfirm, setShowConfirm] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,9 +16,9 @@ export const FormRegister = () => {
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-            // availableTimes: inputList,
         });
         sendUser(dataUser);
+        setShowConfirm(true)
         e.target.reset();
     };
 
@@ -27,7 +29,7 @@ export const FormRegister = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({...user, availableTimes: inputList})
+            body: JSON.stringify({ ...user, availableTimes: inputList })
         };
         await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
     };
@@ -48,13 +50,8 @@ export const FormRegister = () => {
         setInputList(list)
     };
 
-    //Extras: message error
-    //mensaje de confirmacion de datos enviados
-    //reset el form
-    //modal de confirmacion de registro exitoso
-    //bug en el onclick de boton
-    //condicional para las horas que siempre el valor 'hasta' sea mayor al valor de 'desde'
-
+    const showModal = () => setShowConfirm(false)
+   
     return (
         <>
             <form className='register-Form' onSubmit={(e) => handleSubmit(e)} autoComplete='on'>
@@ -99,7 +96,6 @@ export const FormRegister = () => {
                 {inputList.map((element, i) => {
                     return (
                         <section key={i}>
-
                             {(inputList.length - 1 === i && inputList.length < 5) && (<button className='schedulea-btn' onClick={() => handleScheduleAdd()}>+ Nuevo horario</button>)}
                             <div className='content--schedule'>
                                 <label className='register-Form--labelSchedule' htmlFor="weekday">
@@ -170,6 +166,7 @@ export const FormRegister = () => {
                     <input className='form-btn' type='submit' value="Guardar registro" ></input>
                 </article>
             </form>
+            {showConfirm && <ConfirmSendInfo showModal={showModal} />}
         </>
     )
-}
+};
