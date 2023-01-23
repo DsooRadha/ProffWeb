@@ -7,6 +7,7 @@ import './study.css'
 export const Study = () => {
     const [courses, setCourses] = useState([]);
     const [allCourses, setAllCourses] = useState([]);
+    const [arrayFilter, setArrayFilter]=useState([])
 
     const getAllCourses = async () => {
         const config = {
@@ -52,34 +53,44 @@ export const Study = () => {
         setCourses(daysCourses)
     };
 
+
     const hoursRange = (valueUser) => {
         const range = []
         const result = []
+
         allCourses.forEach((element) => {
             const daysClass = element.availableTimes
             const rangeAvailableClass = daysClass.map((day) => {
-                const start = parseInt(day.startClass) - 1
+                const start = parseInt(day.startClass)
                 const end = parseInt(day.endClass) - 1
                 range.push({ element, rangeHour: [start, end] });
+                console.log(start,end,'rangeForEach')
             });
             return rangeAvailableClass
         });
 
+     
         const hoursAvailable = []
+  
         range.forEach((item) => {
-            const start = item.rangeHour.shift()
+           
+            const start = item.rangeHour.shift()-1
             const end = item.rangeHour.pop()
+      
             let numbersHours = start;
             for (let i = start; i < end; i++) {
                 numbersHours++
                 hoursAvailable.push(numbersHours);
+                // console.log(hoursAvailable,'_____')
             };
-            // console.log(hoursAvailable)
+            console.log({item, range: hoursAvailable},'alho')
             // const result= hoursAvailable.filter(hour=>hour===valueUser)
             // console.log(result,'ll')
             // });
-            if ([numbersHours].includes(parseInt(valueUser))) {
-                console.log(item.element, 'gfd')
+// console.log(numbersHours,'numbersHours:::::::')
+
+            if (hoursAvailable.includes(parseInt(valueUser))) {
+                // console.log(item.element, 'gfd')
                 result.push(item.element)
                 return item.element
             }
