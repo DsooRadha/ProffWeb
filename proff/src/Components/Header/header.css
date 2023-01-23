@@ -28,9 +28,3 @@ header p {
     background-color: transparent;
     cursor: pointer;
 }
-
-@media only screen and (max-width: 600px) {
-    .header  {
-        background-color: #F47D35;
-    }
-}

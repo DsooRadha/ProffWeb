@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { ConfirmSendInfo } from '../../ConfirmSendInfo/ConfirmSendInfo';
+import { ConfirmSendInfo } from '../ConfirmSendInfo/ConfirmSendInfo'
 import './formRegister.css'
 
 export const FormRegister = () => {
     const [inputList, setInputList] = useState([{}]);
-    const [dataUser, setDataUser] = useState({});
     const [showConfirm, setShowConfirm] = useState(false)
 
     const handleSubmit = async (e) => {
@@ -25,34 +24,11 @@ export const FormRegister = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            // body: JSON.stringify({ ...dataUser, availableTimes: inputList })
             body: JSON.stringify(data)
         };
         await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
         setShowConfirm(true)
-
-
-        setDataUser({
-
-        });
-        console.log(dataUser, 'data user')
-        // sendUser(dataUser);
-
-    };
-
-    const sendUser = async (user) => {
-        const config = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ ...dataUser, availableTimes: inputList })
-        };
-        console.log(config, 'config')
-        await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
-        setShowConfirm(true)
-        // e.target.reset();
+        e.target.reset();
     };
 
     const handleScheduleAdd = () => setInputList([...inputList, {}]);
@@ -176,8 +152,7 @@ export const FormRegister = () => {
                             </div>
                             {inputList.length > 1 && (<div className='content--schedulea-btn-delete'><button onClick={() => handleScheduleAddRemove(i)} className='schedulea-btn-delete'>- Eliminar horario</button></div>)};
                         </section>
-                    )
-                })};
+                    )})};
                 <article className='finalForm'>
                     <div className='warningText'>
                         <p>¡Importante! </p>
