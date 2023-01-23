@@ -37,29 +37,21 @@ export const Study = () => {
         if (e.target.value === '') {
             return getAllCourses()
         };
+
         const daysCourses = [];
 
         allCourses.forEach((element) => {
             const daysClass = element.availableTimes
-            // console.log(daysClass,'dayClass')
             daysClass.forEach((day) => {
                 if (day.weekday === e.target.value) {
-                    // console.log(day,'day')
-                    if (day === daysClass[0]) {
-                        daysCourses.push(element)
-                    };
+
+                    daysCourses.push(element)
                 };
             });
         });
-        //    const resultSearch = allCourses.filter((item) => {
-        //     if ((item.course).includes(daysCourses.course)) {
-        //         return item
-        //     }
-        // });
-        // setCourses(resultSearch);
         setCourses(daysCourses)
     };
-    
+
     const hoursRange = (valueUser) => {
         const range = []
         const result = []
