@@ -51,8 +51,7 @@ export const FormRegister = () => {
     };
 
     const showModal = () => setShowConfirm(false)
-    //condicional para las horas que siempre el valor 'hasta' sea mayor al valor de 'desde'
-
+   
     return (
         <>
             <form className='register-Form' onSubmit={(e) => handleSubmit(e)} autoComplete='on'>

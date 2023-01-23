@@ -36,7 +36,7 @@ export const Study = () => {
 
         if (e.target.value === '') {
             return getAllCourses()
-        }
+        };
         const daysCourses = [];
 
         allCourses.forEach((element) => {
@@ -59,9 +59,10 @@ export const Study = () => {
         // setCourses(resultSearch);
         setCourses(daysCourses)
     };
+    
     const hoursRange = (valueUser) => {
         const range = []
-
+        const result = []
         allCourses.forEach((element) => {
             const daysClass = element.availableTimes
             const rangeAvailableClass = daysClass.map((day) => {
@@ -80,26 +81,26 @@ export const Study = () => {
             for (let i = start; i < end; i++) {
                 numbersHours++
                 hoursAvailable.push(numbersHours);
-                //  console.log(numbersHours,'numberssss')
             };
-            //  console.log(hoursAvailable)
+            // console.log(hoursAvailable)
             // const result= hoursAvailable.filter(hour=>hour===valueUser)
             // console.log(result,'ll')
+            // });
             if ([numbersHours].includes(parseInt(valueUser))) {
                 console.log(item.element, 'gfd')
+                result.push(item.element)
                 return item.element
             }
-        })
-        return range
-    }
-
-    // console.log(hoursRange(), 'afuera')
+        });
+        return result
+    };
 
     const handleScheduleChange = (e) => {
-        // console.log(e.target.value)
-        console.log(hoursRange(e.target.value), 'aca')
-
-    }
+        if (e.target.value === '') {
+            getAllCourses()
+        };
+        setCourses(hoursRange(e.target.value));
+    };
 
     return (
         <main className='study-main'>
