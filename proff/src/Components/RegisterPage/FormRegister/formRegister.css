@@ -11,15 +11,15 @@
 
 .register-Form {
     background-color: rgb(255, 255, 255);
-    padding: 8vh;
+    padding: 2vh;
     border-radius: 1.5vh;
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 83%;
     font-family: 'Poppins', sans-serif;
     position: absolute;
-    top: 20vw;
-    left: calc(50% - 25vw);
+    top: 40vw;
+    left: calc(50% - 83%/2);
 }
 
 .register-Form h2 {
@@ -35,18 +35,18 @@
     display: flex;
     justify-content: space-between;
     padding: 3vh 0 0 0;
-    width: 42vw;
+    width: 100%;
     align-items: center;
 }
 
 .form-btn {
     background-color: var(--orange);
     color: var(--textSecondary-white);
-    padding: 3vh;
+    padding: 2vh;
     border: none;
     border-radius: 1vh;
-    font-size: 1.8rem;
-    width: 15vw;
+    font-size: 3rem;
+    width: 50%
 }
 
 .form-btn:hover {
@@ -56,12 +56,11 @@
 .warningText {
     color: #A0A0B2;
     background-image: url('../images/warning.svg');
-    padding: 3vh 0 3vh 8vh;
+    padding: 3vh 0 3vh 4vh;
     background-repeat: no-repeat;
     background-position: 0;
     background-size: 3vw;
-    font-size: 1.4rem;
-    line-height: 3vh;
+    font-size:2rem;
 }
 
 .register-Form label {
@@ -77,7 +76,7 @@
     border-radius: 1vh;
     color: var(--complements);
     padding: 2vh;
-    font-size: 1.7rem;
+    font-size: 3rem;
     border: solid #F0EBE6;
 }
 
@@ -96,7 +95,7 @@
 .register-Form span {
     font-family: 'Poppins', sans-serif;
     color: var(--complements);
-    font-size: 1.5rem;
+    font-size: 3rem;
     padding: 2vh 0;
 }
 
@@ -152,5 +151,10 @@
 .schedulea-btn {
     position: absolute;
     right: 12vh;
-    top: 129vh;
+    top: 1930px;
+    font-size: 3rem;
+    height: 50px;
+    width: 300px;
+    
+ right: calc(20% - 300px / 2);
 }

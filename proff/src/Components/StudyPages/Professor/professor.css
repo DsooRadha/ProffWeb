@@ -12,17 +12,16 @@
 }
 
 .content-info-professors {
-    margin-top: 6vh;
+    margin-top: 4vh;
+    width: 100%;
 }
 
 .info-professor {
     background-color: var(--white);
     border-radius: 1.3vh;
     border: 0.2vh solid #e3e2e2;
-    margin: 4vh;
-    width: 50vw;
+    margin: 3vh;
     font-family: 'Poppins', sans-serif;
-    /* color: var(--complements); */
 }
 
 .info-professor--profile {
@@ -38,7 +37,7 @@
 }
 
 .content-info-professor {
-    padding: 3vw;
+    padding: 7vw;
 }
 
 .info-professor-data {
@@ -49,55 +48,54 @@
 
 .info-professor-data h2 {
     color: var(--grey);
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: bolder;
 }
 
 .info-professor-data h4 {
     color: var(--orange);
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     font-weight: lighter;
 }
 
 .content-info-professor p {
     margin-top: 3vh;
     color: var(--complements);
-    font-size: 1.7rem;
+    font-size: 1.2rem;
 }
 
 .info-contactAndPrice {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5vh;
+    padding: 2vh;
     background-color: #f6f6fc;
-    ;
 }
 
 .info-contactAndPrice p {
     color: var(--complements);
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 
 .info-contactAndPrice span {
     color: var(--title);
-    font-size: 1.9rem;
+    font-size: 4rem;
     padding-left: 1vh;
 }
 
 .info-contactAndPrice button {
     background-color: #F47D35;
     color: var(--white);
-    padding: 2.3vh;
-    font-size: 1.7rem;
+    padding: 2vh;
+    font-size: 3rem;
     border: none;
     border-radius: 1vh;
-    width: 17vw;
+    width: 50%;
     background-image: url('../Images/Whatsapp.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 2vw;
-    padding-left: 3vw;
+    background-position: 4vw;
+    padding-left: 12%;
     background-size: 3vh;
 }
 
@@ -106,6 +104,12 @@
 }
 
 .info-professor--profile-content-img {
-    width: 7vw;
-    height: 14vh;
+    width: 30%;
+    /* height: 14vh; */
+}
+
+@media only screen and (max-width: 600px) {
+    .info-professor  {
+        background-color: #F47D35;
+    }
 }

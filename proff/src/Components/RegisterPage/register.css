@@ -10,36 +10,35 @@
 
 .content-gray {
     background-color: var(--grey);
-    height: 50vh;
     align-items: center;
     display: flex;
     flex-direction: column;
 }
 
 .content--welcome {
-    width: 28vw;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     align-self: flex-start;
-    margin-left: 24vw;
+    margin-left: 10%;
+    padding-top: 2vh;
 }
 
 .content--welcome h2 {
     color: var(--textSecondary-white);
     font-size: 4rem;
     font-weight: bolder;
-    line-height: 5.5vh;
 }
 
 .content--welcome p {
     margin-top: 3vh;
-    width: 22vw;
+  
     color: var(--textSecondary-base);
-    font-size: 1.8rem;
+    font-size: 3rem;
     align-self: flex-start;
-    line-height: 4vh;
     font-weight: lighter;
+    margin-bottom: 5vh;
 }
 

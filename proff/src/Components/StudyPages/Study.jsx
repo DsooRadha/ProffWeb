@@ -45,7 +45,6 @@ export const Study = () => {
             const daysClass = element.availableTimes
             daysClass.forEach((day) => {
                 if (day.weekday === e.target.value) {
-
                     daysCourses.push(element)
                 };
             });
@@ -81,7 +80,7 @@ export const Study = () => {
             for (let i = start; i < end; i++) {
                 numbersHours++
                 hoursAvailable.push(numbersHours);
-                // console.log(hoursAvailable,'_____')
+                console.log(hoursAvailable,'_____')
             };
             console.log({item, range: hoursAvailable},'alho')
             // const result= hoursAvailable.filter(hour=>hour===valueUser)
