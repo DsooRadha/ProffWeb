@@ -1,3 +1,4 @@
+@media only screen and (min-width: 800px) {
 :root {
   --grey: #606062;
   --dark-grey: #4A4A4A;
@@ -19,6 +20,7 @@ html {
   font-size: 62.5%;
   font-family: 'Poppins', sans-serif;
   background-color: var(--slowPink);
+  
 }
 
 .welcome {
@@ -28,6 +30,7 @@ html {
   justify-content: center;
   flex-direction: column;
   background: linear-gradient(237.34deg, #606062 17.05%, #4A4A4A 86.94%);
+  overflow: scroll;
 }
 
 .intro {
@@ -38,14 +41,14 @@ html {
 }
 
 .welcome--content-img {
-  width:30vh;
-  position: absolute;
-  left: calc(50% - 30vh/ 2);
-  top: calc(30% - 30vh/ 2);;
+  width:80vw;
+  display: flex;
+ justify-content: center;
 }
 
 .welcome--content-img img{
-  width: 100%;
+  width: 50%;
+  
 }
 .intro article h6 {
   color: var(--textSecondary-base);
@@ -108,4 +111,10 @@ html {
   color: var(--textSecondary-base);
   font-size: 3rem;
   padding-top: 4vh;
+}
+
+
+  .welcome  {
+      background-color: #F47D35;
+  }
 }
