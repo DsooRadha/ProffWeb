@@ -7,19 +7,37 @@ export const FormRegister = () => {
     const [dataUser, setDataUser] = useState({});
     const [showConfirm, setShowConfirm] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setDataUser({
+
+        let data = {
             name: e.target.name.value,
             profilePicture: e.target.profilePicture.value,
             whatsapp: e.target.whatsapp.value,
             biography: e.target.biography.value,
             course: e.target.course.value,
             price: e.target.price.value,
-        });
-        sendUser(dataUser);
+            availableTimes: inputList
+        }
+        const config = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            // body: JSON.stringify({ ...dataUser, availableTimes: inputList })
+            body: JSON.stringify(data)
+        };
+        await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
         setShowConfirm(true)
-        e.target.reset();
+
+
+        setDataUser({
+
+        });
+        console.log(dataUser, 'data user')
+        // sendUser(dataUser);
+
     };
 
     const sendUser = async (user) => {
@@ -29,9 +47,12 @@ export const FormRegister = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ ...user, availableTimes: inputList })
+            body: JSON.stringify({ ...dataUser, availableTimes: inputList })
         };
+        console.log(config, 'config')
         await fetch('https://63ca2143d0ab64be2b4cd856.mockapi.io/userData', config);
+        setShowConfirm(true)
+        // e.target.reset();
     };
 
     const handleScheduleAdd = () => setInputList([...inputList, {}]);
@@ -45,13 +66,12 @@ export const FormRegister = () => {
     const handleScheduleChange = (e, index) => {
         const { name, value } = e.target;
         const list = [...inputList];
-        console.log(list)
         list[index][name] = value;
         setInputList(list)
     };
 
     const showModal = () => setShowConfirm(false)
-   
+
     return (
         <>
             <form className='register-Form' onSubmit={(e) => handleSubmit(e)} autoComplete='on'>

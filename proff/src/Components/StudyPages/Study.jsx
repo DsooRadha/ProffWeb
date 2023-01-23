@@ -7,7 +7,7 @@ import './study.css'
 export const Study = () => {
     const [courses, setCourses] = useState([]);
     const [allCourses, setAllCourses] = useState([]);
-    const [arrayFilter, setArrayFilter] = useState([])
+    const [allFilter, setAllFilter] = useState([])
 
     const getAllCourses = async () => {
         const config = {
@@ -18,17 +18,18 @@ export const Study = () => {
         const allCourses = await response.json();
         setCourses(allCourses)
         setAllCourses(allCourses)
+        setAllFilter(allCourses)
     };
 
     useEffect(() => {
         getAllCourses()
     }, []);
 
-    const handleCourseChange = (e) => {
-        const resultSearch = courses.filter((item) => {
+    const handleCourse = (e) => {
+        const resultSearch = allCourses.filter((item) => {
             if ((item.course).includes(e.target.value)) {
                 return item
-            }
+            };
         });
         setCourses(resultSearch);
     };
@@ -63,50 +64,17 @@ export const Study = () => {
                 const start = parseInt(day.startClass)
                 const end = parseInt(day.endClass)
                 if (valueUser >= start && valueUser < end) {
-                    // console.log(start, end,'rangessss')
-                    
                     range.push(element);
-                    console.log(element)
-                }
+                };
             });
         });
 
-        // const hoursAvailable = []
-        // console.log(range, 'range')
-        // range.forEach((item) => {
-
-        //     const start = item.rangeHour.shift() - 1
-        //     const end = item.rangeHour.pop()
-        //     // console.log(start,end)
-        //     let numbersHours = start;
-        //     for (let i = start; i < end; i++) {
-        //         numbersHours++
-        //         hoursAvailable.push(numbersHours);
-        //         console.log(hoursAvailable, '_____')
-        //     };
-        //     console.log({ item, range: hoursAvailable }, 'alho')
-        //     // const result= hoursAvailable.filter(hour=>hour===valueUser)
-        //     // console.log(result,'ll')
-        //     // });
-        //     // console.log(numbersHours,'numbersHours:::::::')
-
-        // if (hoursAvailable.includes(parseInt(valueUser))) {
-        //     // console.log(item.element, 'gfd')
-        //     result.push(item.element)
-        //     return item.element
-        // }
-    // });
-    let results = [];
     for (let professor of range) {
         if (!result.includes(professor)) {
           result.push(professor);
         }
-      }
-    console.log(result,'resultssss')
-    console.log(range,'range')
-//    if (range.find((item) => item.id === range.id)) {
-//    console.log(item)
-// }
+      };
+      
     return result
 };
 
@@ -126,7 +94,7 @@ return (
         <section className='menu-filtering'>
             <label htmlFor="course">
                 <span>Materia</span>
-                <select onChange={(e) => handleCourseChange(e)} className='menu-filtering--select' id='course' required >
+                <select onChange={(e) => handleCourse(e)} className='menu-filtering--select' id='course' required >
                     <option value=''></option>
                     <option value='Artes'>Artes</option>
                     <option value='Biología'>Biología</option>

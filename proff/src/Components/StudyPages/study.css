@@ -17,30 +17,33 @@
 
 .welcomeStudents {
     background-color: var(--grey);
-    height: 300px;
-    padding-left: 10%;
+    height: 30vh;
+    padding-left: 50vh;
     color: var(--textSecondary-white);
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-weight: bolder;
     font-family: 'Poppins', sans-serif;
-    width: 100%;
-    padding-top: 30px;
+    width: 100vw;
+
+}
+
+.welcomeStudents h2 {
+    width: 30vw;
 }
 
 .menu-filtering {
     position: absolute;
-    top: 300px;
-    top: calc(19% - 200px / 2);
+    top:31vh;
     display: flex;
     align-items: center;
-    width: 90%;
+    width: 55vw;
     justify-content: space-evenly;
     font-family: 'Poppins', sans-serif;
-    height: 200px;
+
 }
 
 .menu-filtering span {
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     color: var(--textSecondary-base);
     padding: 1.2vh 0;
 }
@@ -48,7 +51,6 @@
 .menu-filtering label {
     display: flex;
     flex-direction: column;
-    width: 270px;
 }
 
 .menu-filtering--select {
@@ -57,13 +59,77 @@
     border-radius: 1vh;
     color: var(--complements);
     font-family: 'Poppins', sans-serif;
-    width: 100%;
-    font-size: 3rem;
+    width: 15vw;
+    font-size: 2.1rem;
     background-color: #FAFAFC;
 }
 
+
+
+
 @media only screen and (max-width: 600px) {
-    .menu-filtering--select {
-        background-color: #F47D35;
+    :root {
+        --textSecondary-base: #FFCDAF;
+        --orange: #F47D35;
+        --textSecondary-white: #FFFFFF;
+        --slowPink: #F7F3F0;
+        --title: #666666;
+        --backgroundInput: #FAFAFC;
+        --complements: #B6B6B6;
+        --grey: #606062;
     }
+    
+    .study-main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .welcomeStudents {
+        background-color: var(--grey);
+        height: 300px;
+        padding-left: 10%;
+        color: var(--textSecondary-white);
+        font-size: 3rem;
+        font-weight: bolder;
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        padding-top: 30px;
+    }
+    
+    .menu-filtering {
+        position: absolute;
+        top: 300px;
+        top: calc(19% - 200px / 2);
+        display: flex;
+        align-items: center;
+        width: 90%;
+        justify-content: space-evenly;
+        font-family: 'Poppins', sans-serif;
+        height: 200px;
+    }
+    
+    .menu-filtering span {
+        font-size: 2.5rem;
+        color: var(--textSecondary-base);
+        padding: 1.2vh 0;
+    }
+    
+    .menu-filtering label {
+        display: flex;
+        flex-direction: column;
+        width: 270px;
+    }
+    
+    .menu-filtering--select {
+        padding: 1.6vh;
+        border: none;
+        border-radius: 1vh;
+        color: var(--complements);
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        font-size: 3rem;
+        background-color: #FAFAFC;
+    }
+    
 }
