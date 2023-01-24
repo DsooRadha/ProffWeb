@@ -24,7 +24,7 @@ export const Study = () => {
         getAllCourses()
     }, []);
 
-  //funcion para enlazar los tres filtros 
+    //funcion para enlazar los tres filtros 
     const allFilter = () => {
         const courseSelect = document.getElementById('course').value;
         const weekdaySelect = document.getElementById('weekday').value;
@@ -43,44 +43,46 @@ export const Study = () => {
             filterData = handleCourse(valueCourse)
         };
         if (valueHour !== '') {
-            filterData = hoursRange(valueHour)
+            filterData =  handleSchedule (valueHour)
         };
         return filterData
     };
+    //----------------
 
-    const handleCourse = (valueCourse) => {
+    const handleCourse = (e) => {
         const resultSearch = allCourses.filter((item) => {
-            if ((item.course).includes(valueCourse)) {
+            if ((item.course).includes(e.target.value)) {
                 return item
             };
         });
-        return resultSearch
         return setCourses(resultSearch);
     };
 
-    const handleWeekDay = (valueDay) => {
+    const handleWeekDay = (e) => {
         const resultFilter = [];
         allCourses.filter((item) => {
             (item.availableTimes).forEach((day) => {
-                if ((day.weekday).includes(valueDay)) {
+                if ((day.weekday).includes(e.target.value)) {
                     resultFilter.push(item)
                 };
             });
         });
-        return resultFilter
         return setCourses(resultFilter)
     };
 
-    const hoursRange = (valueUser) => {
-        const range = []
-        const result = []
+    const handleSchedule = (e) => {
+        const range = [];
+        const result = [];
 
+        if (e.target.value === '') {
+            return getAllCourses()
+        };
         allCourses.filter((element) => {
             (element.availableTimes).forEach((day) => {
                 const start = parseInt(day.startClass)
                 const end = parseInt(day.endClass)
 
-                if (valueUser >= start && valueUser < end) {
+                if (e.target.value >= start && e.target.value < end) {
                     range.push(element);
                 };
             });
@@ -91,14 +93,7 @@ export const Study = () => {
                 result.push(professor);
             }
         };
-        return result
-    };
-
-    const handleSchedule = (e) => {
-        if (e.target.value === '') {
-            return getAllCourses()
-        };
-        return setCourses(hoursRange(e.target.value));
+        return setCourses(result);
     };
 
     return (
@@ -110,10 +105,7 @@ export const Study = () => {
             <section className='menu-filtering'>
                 <label htmlFor="course">
                     <span>Materia</span>
-                    <select
-                        onChange={(e) => allFilter(e)}
-                        // onChange={(e) => handleCourse(e)} 
-                        className='menu-filtering--select' id='course' required >
+                    <select onChange={(e) => handleCourse(e)} className='menu-filtering--select' id='course' required >
                         <option value=''></option>
                         <option value='Artes'>Artes</option>
                         <option value='Biología'>Biología</option>
@@ -128,10 +120,7 @@ export const Study = () => {
                 </label>
                 <label>
                     <span>Día de la Semana</span>
-                    <select 
-                    onChange={(e) => allFilter(e)}
-                    // onChange={(e) => handleWeekDay(e)} 
-                    className='menu-filtering--select' name="weekday" id="weekday" required>
+                    <select onChange={(e) => handleWeekDay(e)} className='menu-filtering--select' name="weekday" id="weekday" required>
                         <option value=''></option>
                         <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
@@ -142,10 +131,7 @@ export const Study = () => {
                 </label>
                 <label>
                     <span>Horario</span>
-                    <select 
-                    onChange={(e) => allFilter(e)}
-                    // onChange={(e) => handleSchedule(e)} 
-                    className='menu-filtering--select' name="schedule" id="schedule" required>
+                    <select onChange={(e) => handleSchedule(e)} className='menu-filtering--select' name="schedule" id="schedule" required>
                         <option value=''></option>
                         <option value="6">6 hrs</option>
                         <option value="7">7 hrs</option>
