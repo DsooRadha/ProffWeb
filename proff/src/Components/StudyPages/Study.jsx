@@ -23,20 +23,22 @@ export const Study = () => {
         getAllCourses()
     }, []);
 
+//funcion para enlazar los tres filtros 
+
     const globalFilter = (data, valueDay, valueHour, valueCourse) => {
         let filterData = data
 
         if (valueDay !== '') {
             filterData = handleWeekDay(valueDay)
-        }
+        };
         if (valueCourse !== '') {
             filterData = handleCourse(valueCourse)
-        }
+        };
         if (valueHour !== '') {
             filterData = hoursRange(valueHour)
-        }
+        };
         return filterData
-    }
+    };
 
     const handleCourse = (e) => {
         const resultSearch = allCourses.filter((item) => {
@@ -88,7 +90,6 @@ export const Study = () => {
         };
        return  setCourses(hoursRange(e.target.value));
     };
-
 
     return (
         <main className='study-main'>

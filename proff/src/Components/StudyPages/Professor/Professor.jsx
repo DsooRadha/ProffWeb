@@ -1,6 +1,7 @@
 import './professor.css'
 
-export const Professor = ({ courses}) => {
+export const Professor = ({ courses }) => {
+    
 
     return (
         <section className="content-info-professors">
@@ -10,11 +11,11 @@ export const Professor = ({ courses}) => {
                         <section className="content-info-professor">
                             <div className="info-professor--profile">
                                 <div className="info-professor--profile-content-img">
-                                <img src={item.profilePicture} alt={item.name} />
+                                    <img src={item.profilePicture} alt={item.name} />
                                 </div>
                                 <div className="info-professor-data">
-                                <h2>{item.name}</h2>
-                                <h4>{item.course}</h4>
+                                    <h2>{item.name}</h2>
+                                    <h4>{item.course}</h4>
                                 </div>
                             </div>
                             <p>{item.biography}</p>
