@@ -8,6 +8,7 @@ export const Study = () => {
     const [courses, setCourses] = useState([]);
     const [allCourses, setAllCourses] = useState([]);
 
+
     const getAllCourses = async () => {
         const config = {
             method: "GET",
@@ -23,20 +24,30 @@ export const Study = () => {
         getAllCourses()
     }, []);
 
-    const globalFilter = (data, valueDay, valueHour, valueCourse) => {
-        let filterData = data
+    //funcion para enlazar los tres filtros 
+    // const allFilter = () => {
+    //     const courseSelect = document.getElementById('course').value;
+    //     const weekdaySelect = document.getElementById('weekday').value;
+    //     const hoursSelect = document.getElementById('schedule').value;
+    //     setCourses(filtering(courses, weekdaySelect, hoursSelect, courseSelect))
+    // }
 
-        if (valueDay !== '') {
-            filterData = handleWeekDay(valueDay)
-        }
-        if (valueCourse !== '') {
-            filterData = handleCourse(valueCourse)
-        }
-        if (valueHour !== '') {
-            filterData = hoursRange(valueHour)
-        }
-        return filterData
-    }
+    // const filtering = (data, valueDay, valueHour, valueCourse) => {
+
+    //     let filterData = data
+
+    //     if (valueDay !== '') {
+    //         filterData = handleWeekDay(valueDay)
+    //     };
+    //     if (valueCourse !== '') {
+    //         filterData = handleCourse(valueCourse)
+    //     };
+    //     if (valueHour !== '') {
+    //         filterData =  handleSchedule (valueHour)
+    //     };
+    //     return filterData
+    // };
+    //----------------
 
     const handleCourse = (e) => {
         const resultSearch = allCourses.filter((item) => {
@@ -59,16 +70,19 @@ export const Study = () => {
         return setCourses(resultFilter)
     };
 
-    const hoursRange = (valueUser) => {
-        const range = []
-        const result = []
+    const handleSchedule = (e) => {
+        const range = [];
+        const result = [];
 
+        if (e.target.value === '') {
+            return getAllCourses()
+        };
         allCourses.filter((element) => {
             (element.availableTimes).forEach((day) => {
                 const start = parseInt(day.startClass)
                 const end = parseInt(day.endClass)
 
-                if (valueUser >= start && valueUser < end) {
+                if (e.target.value >= start && e.target.value < end) {
                     range.push(element);
                 };
             });
@@ -79,16 +93,8 @@ export const Study = () => {
                 result.push(professor);
             }
         };
-        return result
+        return setCourses(result);
     };
-
-    const handleSchedule = (e) => {
-        if (e.target.value === '') {
-       return     getAllCourses()
-        };
-       return  setCourses(hoursRange(e.target.value));
-    };
-
 
     return (
         <main className='study-main'>
