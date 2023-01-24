@@ -7,11 +7,6 @@ import './study.css'
 export const Study = () => {
     const [courses, setCourses] = useState([]);
     const [allCourses, setAllCourses] = useState([]);
-    const [allFilter, setAllFilter] = useState([]);
-
-    let course = '';
-    let hour = '';
-    let day = '';
 
     const getAllCourses = async () => {
         const config = {
@@ -22,31 +17,15 @@ export const Study = () => {
         const allCourses = await response.json();
         setCourses(allCourses)
         setAllCourses(allCourses)
-        setAllFilter(allCourses)
     };
 
     useEffect(() => {
         getAllCourses()
     }, []);
 
-    const valueHour = (e) => {
-        hour = e.target.value
-        console.log(hour, 'H')
-    };
-    const valueWeekDay = (e) => {
-        day = e.target.value;
-        console.log(day, 'D')
-    }
-    const valueCourse = (e) => {
-        course = e.target.value;
-        console.log(course, 'C')
-        console.log(globalFilter(allCourses, '', '', course))
-    }
-
     const globalFilter = (data, valueDay, valueHour, valueCourse) => {
         let filterData = data
 
-        console.log(handleCourse('Quimica'))
         if (valueDay !== '') {
             filterData = handleWeekDay(valueDay)
         }
@@ -59,43 +38,36 @@ export const Study = () => {
         return filterData
     }
 
-    const handleCourse = (courseUser) => {
+    const handleCourse = (e) => {
         const resultSearch = allCourses.filter((item) => {
-            if ((item.course).includes(courseUser)) {
+            if ((item.course).includes(e.target.value)) {
                 return item
             };
         });
-        setCourses(resultSearch);
+        return setCourses(resultSearch);
     };
 
-    const handleWeekDay = (dayUser) => {
-
-        // if (e.target.value === '') {
-        //     return getAllCourses()
-        // };
-
-        const daysCourses = [];
-
-        courses.forEach((element) => {
-            const daysClass = element.availableTimes
-            daysClass.forEach((day) => {
-                if (day.weekday === dayUser) {
-                    daysCourses.push(element)
+    const handleWeekDay = (e) => {
+        const resultFilter = [];
+        allCourses.filter((item) => {
+            (item.availableTimes).forEach((day) => {
+                if ((day.weekday).includes(e.target.value)) {
+                    resultFilter.push(item)
                 };
             });
         });
-        setCourses(daysCourses)
+        return setCourses(resultFilter)
     };
 
     const hoursRange = (valueUser) => {
         const range = []
         const result = []
 
-        courses.forEach((element) => {
-            const daysClass = element.availableTimes
-            daysClass.forEach((day) => {
+        allCourses.filter((element) => {
+            (element.availableTimes).forEach((day) => {
                 const start = parseInt(day.startClass)
                 const end = parseInt(day.endClass)
+
                 if (valueUser >= start && valueUser < end) {
                     range.push(element);
                 };
@@ -107,17 +79,15 @@ export const Study = () => {
                 result.push(professor);
             }
         };
-
         return result
     };
 
     const handleSchedule = (e) => {
         if (e.target.value === '') {
-            getAllCourses()
+       return     getAllCourses()
         };
-        setCourses(hoursRange(e.target.value));
+       return  setCourses(hoursRange(e.target.value));
     };
-
 
 
     return (
@@ -129,10 +99,7 @@ export const Study = () => {
             <section className='menu-filtering'>
                 <label htmlFor="course">
                     <span>Materia</span>
-                    <select
-                        onChange={(e) => valueCourse(e)}
-                        // onChange={(e) => handleCourse(e)} 
-                        className='menu-filtering--select' id='course' required >
+                    <select onChange={(e) => handleCourse(e)} className='menu-filtering--select' id='course' required >
                         <option value=''></option>
                         <option value='Artes'>Artes</option>
                         <option value='Biología'>Biología</option>
@@ -147,10 +114,7 @@ export const Study = () => {
                 </label>
                 <label>
                     <span>Día de la Semana</span>
-                    <select
-                        onChange={(e) => valueWeekDay(e)}
-                        // onChange={(e) => handleWeekDay(e)} 
-                        className='menu-filtering--select' name="weekday" id="weekday" required>
+                    <select onChange={(e) => handleWeekDay(e)} className='menu-filtering--select' name="weekday" id="weekday" required>
                         <option value=''></option>
                         <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
@@ -161,10 +125,7 @@ export const Study = () => {
                 </label>
                 <label>
                     <span>Horario</span>
-                    <select
-                        onChange={(e) => valueHour(e)}
-                        // onChange={(e) => handleSchedule(e)} 
-                        className='menu-filtering--select' name="schedule" id="schedule" required>
+                    <select onChange={(e) => handleSchedule(e)} className='menu-filtering--select' name="schedule" id="schedule" required>
                         <option value=''></option>
                         <option value="6">6 hrs</option>
                         <option value="7">7 hrs</option>
@@ -189,4 +150,4 @@ export const Study = () => {
             {courses.length === 0 && <NoMatch />}
         </main>
     );
-}
+};

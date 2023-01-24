@@ -20,7 +20,7 @@ export const Professor = ({ courses}) => {
                             <p>{item.biography}</p>
                         </section>
                         <div className="info-contactAndPrice">
-                            <p>Precio/hora <span>$ {item.price}</span></p>
+                            <p>Precio/hora <span>$ {item.price}.00</span></p>
                             <button>Entrar en contacto</button>
                         </div>
                     </article>
