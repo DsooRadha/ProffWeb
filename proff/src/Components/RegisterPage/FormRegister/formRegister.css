@@ -15,11 +15,11 @@
     border-radius: 1.5vh;
     display: flex;
     flex-direction: column;
-    width: 50vw;
+    width: 830px;
     font-family: 'Poppins', sans-serif;
     position: absolute;
-    top: 20vw;
-    left: calc(50% - 25vw);
+    top: 320px;
+    left: calc(50% - 830px / 2);
 }
 
 .register-Form h2 {
@@ -89,7 +89,8 @@
     border-bottom: 0.5vh solid #606062;
     outline: none;
 }
-.register-Form label textarea{
+
+.register-Form label textarea {
     height: 20vh;
 }
 

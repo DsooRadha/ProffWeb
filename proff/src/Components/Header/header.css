@@ -2,7 +2,7 @@ header {
     background-color: #606062;
     display: flex;
     justify-content: space-between;
-    padding: 3vh 15vh;
+    padding: 25px 60px;
     width: 100vw;
 }
 
@@ -12,7 +12,7 @@ header p {
 }
 
 .header-content--img {
-    width: 3vw;
+    width: 7vw;
 }
 
 .header-content--img img {
@@ -20,7 +20,7 @@ header p {
 }
 
 .return-btn {
-    width: 4vw;
+    width: 7vw;
     background-image: url('./Images/arrow.svg');
     border: none;
     background-repeat: no-repeat;

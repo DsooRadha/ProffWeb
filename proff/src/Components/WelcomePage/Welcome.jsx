@@ -8,7 +8,9 @@ export const Welcome = () => {
         <section className='welcome'>
             <div className='intro'>
                 <article>
+                    <div className='welcome--content-img'>
                 <img src="https://user-images.githubusercontent.com/101679628/213553684-9dc3398f-77ec-40b0-b951-7b74db0abb21.png" alt="TitleAppProff" />
+                </div>
                 <h6>Tu plataforma de estudio en Linea</h6>
                 </article>
                 <div className='intro-content--img'>
