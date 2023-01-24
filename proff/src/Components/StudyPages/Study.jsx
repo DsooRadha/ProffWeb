@@ -25,28 +25,28 @@ export const Study = () => {
     }, []);
 
     //funcion para enlazar los tres filtros 
-    const allFilter = () => {
-        const courseSelect = document.getElementById('course').value;
-        const weekdaySelect = document.getElementById('weekday').value;
-        const hoursSelect = document.getElementById('schedule').value;
-        setCourses(filtering(courses, weekdaySelect, hoursSelect, courseSelect))
-    }
+    // const allFilter = () => {
+    //     const courseSelect = document.getElementById('course').value;
+    //     const weekdaySelect = document.getElementById('weekday').value;
+    //     const hoursSelect = document.getElementById('schedule').value;
+    //     setCourses(filtering(courses, weekdaySelect, hoursSelect, courseSelect))
+    // }
 
-    const filtering = (data, valueDay, valueHour, valueCourse) => {
+    // const filtering = (data, valueDay, valueHour, valueCourse) => {
 
-        let filterData = data
+    //     let filterData = data
 
-        if (valueDay !== '') {
-            filterData = handleWeekDay(valueDay)
-        };
-        if (valueCourse !== '') {
-            filterData = handleCourse(valueCourse)
-        };
-        if (valueHour !== '') {
-            filterData =  handleSchedule (valueHour)
-        };
-        return filterData
-    };
+    //     if (valueDay !== '') {
+    //         filterData = handleWeekDay(valueDay)
+    //     };
+    //     if (valueCourse !== '') {
+    //         filterData = handleCourse(valueCourse)
+    //     };
+    //     if (valueHour !== '') {
+    //         filterData =  handleSchedule (valueHour)
+    //     };
+    //     return filterData
+    // };
     //----------------
 
     const handleCourse = (e) => {
