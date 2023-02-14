@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# ProffWeb
+![Login](https://user-images.githubusercontent.com/101679628/218879028-8b14e430-3c03-4f7b-94ae-c4c3120e14a8.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Es una aplicación para desktop con React.JS que usando routerDOM te permite navegar a una página donde se puede dar de alta el servicio de dar clases a través de llenar un formulario. 
 
-## Available Scripts
+![Form](https://user-images.githubusercontent.com/101679628/218879387-bd83fb06-7753-46d6-bcd5-84f542c1c200.png)
 
-In the project directory, you can run:
+Dicho formulario está diseñado bajo criterios desing responsive siendo amigable con todxs los usuarixs. También crea de manera dinámica en el apartado de agregar/eliminar horarios. Al llenar todos los campos y darle clic en enviar,  muestra un modal con la confirmación de que los datos han sido enviados. 
 
-### `npm start`
+![ButtonForm](https://user-images.githubusercontent.com/101679628/218879424-b1c940ac-3d6e-45bc-ad13-0234e62b75b9.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Al terminar de llenar el formulario, el usuario puede regresar a la página principal y seleccionar, ir  a la vista de alumnos y estará renderizada la información de los profesores que se han registrado(actualizada en tiempo real).  En este layout puedes filtrar a los profesores según las necesidades del usuario (materia, horario y día de la semana).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![StartRenderProfessors](https://user-images.githubusercontent.com/101679628/218879763-8429c363-f401-439a-9e82-3bb926515822.png)
 
-### `npm test`
+![exampleProfessors](https://user-images.githubusercontent.com/101679628/218879817-e496b4a3-82c2-457b-933f-fbd1d1320676.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Deploy 
+https://proff-web.vercel.app/
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+En este proyecto se trabajo el uso de hooks de react, el manejo de API's  (creación, edicion, eliminar, renderizado, filtrado), CSS, JS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ >_sthiramyoga@gmail.com_  
+ >Adei Cabañas
